@@ -15,15 +15,11 @@
         android:gravity="center"
         android:layout_weight="1">
 
-
         <ImageView
             android:layout_width="240dp"
             android:layout_height="240dp"
             android:src="@drawable/logo"
-            android:id="@+id/imageId"
-
-            />
-
+            android:id="@+id/imageId" />
 
     </LinearLayout>
 
@@ -33,7 +29,6 @@
         android:orientation="vertical"
         android:layout_weight="2"
         android:layout_gravity="center_vertical">
-
 
         <EditText
             android:layout_width="match_parent"
@@ -45,9 +40,7 @@
             android:textSize="24dp"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="35dp"
-            android:layout_marginRight="35dp"
-
-            />
+            android:layout_marginRight="35dp" />
 
         <EditText
             android:layout_width="match_parent"
@@ -59,17 +52,13 @@
             android:textSize="24dp"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="35dp"
-            android:layout_marginRight="35dp"
-
-            />
-
+            android:layout_marginRight="35dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center">
-
 
             <Button
                 android:layout_width="wrap_content"
@@ -80,8 +69,7 @@
                 android:padding="12dp"
                 android:textColor="#fff"
                 android:textSize="18dp"
-                android:layout_marginRight="30dp"
-                />
+                android:layout_marginRight="30dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -89,25 +77,10 @@
                 android:text="Don't have an account?"
                 android:textSize="20dp"
                 android:textColor="#000"
-                android:id="@+id/signupId"
-
-                />
-
+                android:id="@+id/signupId" />
 
         </LinearLayout>
 
-
-
-
-
-
     </LinearLayout>
-
-
-
-
-
-
-
 
 </LinearLayout>

@@ -9,29 +9,18 @@
     android:background="#fff"
     tools:context=".BmiCalculatorActivity">
 
-
-
-
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right"
             android:layout_weight="0.3">
 
-
             <ImageView
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:src="@drawable/bmi1"
-                android:id="@+id/imageId"
-
-                />
-
-
+                android:id="@+id/imageId" />
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,16 +35,12 @@
                 android:text="Height(cm):"
                 android:textColor="#000"
                 android:textStyle="bold"
-                android:textSize="20dp"
-
-                />
+                android:textSize="20dp" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="150dp"
-
-                />
+                android:layout_marginRight="150dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -64,17 +49,12 @@
                 android:text="Weight(kg):"
                 android:textColor="#000"
                 android:textStyle="bold"
-                android:textSize="20dp"
-
-                />
+                android:textSize="20dp" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="150dp"
-
-                />
-
+                android:layout_marginRight="150dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -82,12 +62,7 @@
                 android:text="Sex:"
                 android:textColor="#000"
                 android:textStyle="bold"
-                android:textSize="20dp"
-
-                />
-
-
-
+                android:textSize="20dp" />
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -97,17 +72,14 @@
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Male"
-                    />
+                    android:text="Male" />
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Female"
-                    />
+                    android:text="Female" />
 
             </RadioGroup>
-
 
             <TextView
                 android:layout_width="match_parent"
@@ -115,17 +87,12 @@
                 android:text="Age:"
                 android:textColor="#000"
                 android:textStyle="bold"
-                android:textSize="20dp"
-
-                />
+                android:textSize="20dp" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="150dp"
-
-                />
-
+                android:layout_marginRight="150dp" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -136,19 +103,8 @@
                 android:gravity="left"
                 android:layout_marginTop="5dp"
                 android:textColor="#000"
-                android:textSize="18dp"
-
-                />
+                android:textSize="18dp" />
 
         </LinearLayout>
-
-
-
-
-
-
-
-
-
 
 </LinearLayout>
