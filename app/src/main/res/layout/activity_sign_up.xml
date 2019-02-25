@@ -73,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Get Started"
-            android:id="@+id/loginId"
+            android:id="@+id/signUpId"
             android:background="@drawable/rounded_button"
             android:padding="12dp"
             android:textColor="#fff"
