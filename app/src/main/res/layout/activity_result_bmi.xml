@@ -7,10 +7,7 @@
     android:weightSum="3"
     android:orientation="vertical"
     android:background="#fff"
-
     tools:context=".ResultBmiActivity">
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +21,6 @@
             android:src="@drawable/bmi1"
             android:id="@+id/imageId" />
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,9 +36,7 @@
             android:text="Your result suggests, you are"
             android:textColor="#000"
             android:textSize="22dp"
-            android:textStyle="bold"
-
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -50,9 +44,7 @@
             android:text="overweight"
             android:textColor="#FF0000"
             android:textSize="22dp"
-            android:textStyle="bold"
-
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:layout_marginTop="20dp"
@@ -61,20 +53,15 @@
             android:text="Body Mass Index:"
             android:textColor="#000"
             android:textSize="22dp"
-            android:textStyle="bold"
-
-            />
+            android:textStyle="bold" />
 
         <TextView
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="22.7"
             android:textColor="#000"
             android:textSize="22dp"
-            android:textStyle="bold"
-
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:layout_marginTop="25dp"
@@ -83,9 +70,7 @@
             android:text="Healthy weight range:"
             android:textColor="#000"
             android:textSize="22dp"
-            android:textStyle="bold"
-
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:layout_marginTop="20dp"
@@ -94,21 +79,16 @@
             android:text="44.2 kg - 57.4 kg"
             android:textColor="#000"
             android:textSize="22dp"
-            android:textStyle="bold"
-
-            />
-
-
-
+            android:textStyle="bold" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
 
         <Button
+            android:id="@+id/backToHomeId"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:layout_width="match_parent"
@@ -116,18 +96,8 @@
             android:text="Back to home"
             android:textSize="18dp"
             android:background="#ffe413"
-            android:padding="10dp"
-
-            />
-
+            android:padding="10dp" />
 
     </LinearLayout>
-
-
-
-
-
-
-
 
 </LinearLayout>

@@ -22,14 +22,9 @@ public class SignUpActivity extends AppCompatActivity {
                 startActivity(new Intent(SignUpActivity.this, ServicesActivity.class));
             }
         });
-
-
     }
 
     public void init(){
-
         signUpId = findViewById(R.id.signUpId);
-
-
     }
 }

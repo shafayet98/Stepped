@@ -30,13 +30,13 @@ public class MainActivity extends AppCompatActivity {
         loginId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, BmiCalculatorActivity.class));
+                startActivity(new Intent(MainActivity.this, ServicesActivity.class));
             }
         });
 
     }
 
-    public void init(){
+    private void init(){
         signupId = findViewById(R.id.signupId);
         loginId = findViewById(R.id.loginId);
     }

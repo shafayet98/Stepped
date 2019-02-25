@@ -27,10 +27,8 @@ public class BmiCalculatorActivity extends AppCompatActivity {
 
     }
 
-    public void init(){
-
+    private void init(){
         calculateBmiId = findViewById(R.id.calculateBmiId);
-
     }
 
 }
