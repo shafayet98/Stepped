@@ -101,6 +101,7 @@
                 android:background="#ffe413"
                 android:padding="10dp"
                 android:gravity="left"
+                android:id="@+id/calculateBmiId"
                 android:layout_marginTop="5dp"
                 android:textColor="#000"
                 android:textSize="18dp" />
