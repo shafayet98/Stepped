@@ -31,13 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         init();
-
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
-        String user = sharedPreferences.getString(NAME, "");
-        String pass = sharedPreferences.getString(PASSWORD, "");
-        if(!TextUtils.isEmpty(user) && !TextUtils.isEmpty(pass)){
-            goToServiceActivity();
-        }
+        instantLogin();
 
         signupId.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,5 +93,14 @@ public class MainActivity extends AppCompatActivity {
     private void clearAll(){
         usernameId.setText("");
         passwordId.setText("");
+    }
+
+    private void instantLogin(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+        String user = sharedPreferences.getString(NAME, "");
+        String pass = sharedPreferences.getString(PASSWORD, "");
+        if(!TextUtils.isEmpty(user) && !TextUtils.isEmpty(pass)){
+            goToServiceActivity();
+        }
     }
 }
