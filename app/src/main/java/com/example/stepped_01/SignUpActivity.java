@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -76,9 +77,9 @@ public class SignUpActivity extends AppCompatActivity {
         email = emailId.getText().toString().trim();
         password = passId.getText().toString().trim();
 
-        if(!TextUtils.isEmpty(name) && !name.equals("") && noSpecialChars(name)){
+        if(!TextUtils.isEmpty(name) && !name.equals("")&& noSpecialChars(name)){
             if(!TextUtils.isEmpty(email) && !email.equals("") && isValidEmail(email)) {
-                if(!TextUtils.isEmpty(password) && password.equals("")){
+                if(!TextUtils.isEmpty(password) && !password.equals("")){
                     return true;
                 }
             }
@@ -89,7 +90,8 @@ public class SignUpActivity extends AppCompatActivity {
     private boolean noSpecialChars(String s){
         Pattern pattern = Pattern.compile("[^A-Za-z0-9]");
         Matcher matcher = pattern.matcher(s);
-        return matcher.find();
+        Log.d("msg", !matcher.find() + "");
+        return !matcher.find();
     }
 
     private boolean isValidEmail(String email){
