@@ -55,10 +55,11 @@
             android:layout_marginRight="35dp" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_marginLeft="35dp">
 
             <Button
                 android:layout_width="wrap_content"
@@ -68,14 +69,14 @@
                 android:background="@drawable/rounded_button"
                 android:padding="12dp"
                 android:textColor="#fff"
-                android:textSize="18dp"
-                android:layout_marginRight="30dp" />
+                android:textSize="18dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:text="Don't have an account?"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textColor="#000"
                 android:id="@+id/signupId" />
 

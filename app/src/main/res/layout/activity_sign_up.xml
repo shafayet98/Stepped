@@ -38,7 +38,7 @@
             android:background="@drawable/rounded_edit_text"
             android:id="@+id/nameId"
             android:padding="12dp"
-            android:textSize="24dp"
+            android:textSize="20dp"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="35dp"
             android:layout_marginRight="35dp" />
@@ -51,7 +51,7 @@
             android:background="@drawable/rounded_edit_text"
             android:id="@+id/emailId"
             android:padding="12dp"
-            android:textSize="24dp"
+            android:textSize="20dp"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="35dp"
             android:layout_marginRight="35dp" />
@@ -64,7 +64,7 @@
             android:background="@drawable/rounded_edit_text"
             android:id="@+id/passId"
             android:padding="12dp"
-            android:textSize="24dp"
+            android:textSize="20dp"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="35dp"
             android:layout_marginRight="35dp" />
@@ -78,6 +78,7 @@
             android:padding="12dp"
             android:textColor="#fff"
             android:textSize="20dp"
+            android:layout_marginBottom="15dp"
             android:layout_marginLeft="35dp"
             android:layout_marginRight="35dp" />
 
