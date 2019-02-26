@@ -32,6 +32,13 @@ public class MainActivity extends AppCompatActivity {
 
         init();
 
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+        String user = sharedPreferences.getString(NAME, "");
+        String pass = sharedPreferences.getString(PASSWORD, "");
+        if(!TextUtils.isEmpty(user) && !TextUtils.isEmpty(pass)){
+            goToServiceActivity();
+        }
+
         signupId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
             }
             }
         });
-
     }
 
     private void init(){
@@ -79,11 +85,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean validateCredentials(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+        String user = sharedPreferences.getString(NAME, "");
+        String pass = sharedPreferences.getString(PASSWORD, "");
         if(validateData()){
-            SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
-            String user = sharedPreferences.getString(NAME, "");
-            String pass = sharedPreferences.getString(PASSWORD, "");
-
             if(name.equals(user) && password.equals(pass)){
                 return true;
             }
