@@ -77,7 +77,7 @@ public class SignUpActivity extends AppCompatActivity {
         email = emailId.getText().toString().trim();
         password = passId.getText().toString().trim();
 
-        if(!TextUtils.isEmpty(name) && !name.equals("")&& noSpecialChars(name)){
+        if(!TextUtils.isEmpty(name) && !name.equals("") && noSpecialChars(name)){
             if(!TextUtils.isEmpty(email) && !email.equals("") && isValidEmail(email)) {
                 if(!TextUtils.isEmpty(password) && !password.equals("")){
                     return true;
