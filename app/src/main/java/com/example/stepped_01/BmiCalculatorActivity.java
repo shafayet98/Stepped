@@ -51,7 +51,6 @@ public class BmiCalculatorActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     private void init(){
