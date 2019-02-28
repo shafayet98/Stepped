@@ -28,6 +28,12 @@ public class ServicesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_services);
         init();
         getBmi();
+        pedometerId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ServicesActivity.this, PedometerActivity.class));
+            }
+        });
 
         bmiId.setOnClickListener(new View.OnClickListener() {
             @Override
