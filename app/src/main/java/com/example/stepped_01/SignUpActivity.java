@@ -79,7 +79,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         if(!TextUtils.isEmpty(name) && !name.equals("") && noSpecialChars(name)){
             if(!TextUtils.isEmpty(email) && !email.equals("") && isValidEmail(email)) {
-                if(!TextUtils.isEmpty(password) && !password.equals("")){
+                if(!TextUtils.isEmpty(password) && !password.equals("") && password.length() > 6){
                     return true;
                 }
             }

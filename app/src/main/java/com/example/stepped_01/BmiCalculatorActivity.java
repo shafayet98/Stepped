@@ -1,6 +1,7 @@
 package com.example.stepped_01;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -27,6 +28,10 @@ public class BmiCalculatorActivity extends AppCompatActivity {
 
     Bmi bmi;
     BmiCalculations calculations;
+    private static final String SHARED_PREF = "SHARED_PREF";
+    private static final String BMI = "BMI";
+    private static final String RESULT = "RESULT";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +49,16 @@ public class BmiCalculatorActivity extends AppCompatActivity {
                     bundle.putString("Bmi", calculations.getBmiNumber());
                     bundle.putString("Result", calculations.getResultOnBmi());
                     intent.putExtras(bundle);
+
+                    SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                    editor.putString(BMI, calculations.getBmiNumber());
+                    editor.putString(RESULT, calculations.getResultOnBmi());
+
+                    editor.commit();
+                    editor.apply();
+
                     startActivity(intent);
                 }else{
                     Toast.makeText(BmiCalculatorActivity.this, "Wrong inputs", Toast.LENGTH_SHORT).show();
@@ -108,6 +123,10 @@ public class BmiCalculatorActivity extends AppCompatActivity {
         weightId.setText("");
         ageId.setText("");
         radioGroupId.clearCheck();
+    }
+
+    private void saveBmi(){
+
     }
 
 }
