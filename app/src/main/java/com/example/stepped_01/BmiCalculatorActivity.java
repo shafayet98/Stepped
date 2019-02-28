@@ -44,22 +44,8 @@ public class BmiCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(setUpBmi()){
-                    Intent intent = new Intent(BmiCalculatorActivity.this, ResultBmiActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Bmi", calculations.getBmiNumber());
-                    bundle.putString("Result", calculations.getResultOnBmi());
-                    intent.putExtras(bundle);
-
-                    SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-
-                    editor.putString(BMI, calculations.getBmiNumber());
-                    editor.putString(RESULT, calculations.getResultOnBmi());
-
-                    editor.commit();
-                    editor.apply();
-
-                    startActivity(intent);
+                    saveBmi();
+                    goToResultBmi();
                 }else{
                     Toast.makeText(BmiCalculatorActivity.this, "Wrong inputs", Toast.LENGTH_SHORT).show();
                     clearAll();
@@ -126,7 +112,23 @@ public class BmiCalculatorActivity extends AppCompatActivity {
     }
 
     private void saveBmi(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
 
+        editor.putString(BMI, calculations.getBmiNumber());
+        editor.putString(RESULT, calculations.getResultOnBmi());
+
+        editor.commit();
+        editor.apply();
+    }
+
+    private void goToResultBmi(){
+        Intent intent = new Intent(BmiCalculatorActivity.this, ResultBmiActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("Bmi", calculations.getBmiNumber());
+        bundle.putString("Result", calculations.getResultOnBmi());
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
 }

@@ -32,7 +32,6 @@ public class ServicesActivity extends AppCompatActivity {
         bmiId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                startActivity(new Intent(ServicesActivity.this, BmiCalculatorActivity.class));
                 if(!bmi.equals("")){
                     alertUserForBmi();
                 }else{

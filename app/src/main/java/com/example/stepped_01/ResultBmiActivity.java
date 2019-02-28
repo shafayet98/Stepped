@@ -53,7 +53,7 @@ public class ResultBmiActivity extends AppCompatActivity {
             case "Normal":
                 return Color.GREEN;
             case "Overweight":
-                return Color.YELLOW;
+                return Color.rgb(255, 165, 0);
             case "Obese":
                 return Color.RED;
         }
