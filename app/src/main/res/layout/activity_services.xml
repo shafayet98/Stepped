@@ -12,6 +12,11 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+
+        <include
+            android:id="@+id/toolbarId"
+            layout="@layout/toolbar"/>
+
         <!--Product 1-->
         <android.support.v7.widget.CardView
             android:id="@+id/pedometerId"
