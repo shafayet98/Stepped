@@ -57,6 +57,11 @@ public class ServicesActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        this.moveTaskToBack(true);
+    }
+
     private void init(){
         pedometerId = findViewById(R.id.pedometerId);
         bmiId = findViewById(R.id.bmiId);
