@@ -10,7 +10,9 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 public class ServicesActivity extends AppCompatActivity {
 
@@ -29,15 +31,11 @@ public class ServicesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_services);
         init();
-
-
-
         getBmi();
+
         pedometerId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,10 +106,48 @@ public class ServicesActivity extends AppCompatActivity {
         startActivity(new Intent(ServicesActivity.this, BmiCalculatorActivity.class));
     }
 
+    @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu,menu);
         return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.logout:
+                alertLogout();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void alertLogout(){
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(ServicesActivity.this);
+        builder1.setTitle("Are you sure?");
+        builder1.setMessage("Do you really want to logout?");
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "Yes",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        MainActivity.logout_flag = true;
+                        Toast.makeText(ServicesActivity.this, "clicked", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(ServicesActivity.this, MainActivity.class));
+                    }
+                });
+
+        builder1.setNegativeButton(
+                "No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
     }
 }

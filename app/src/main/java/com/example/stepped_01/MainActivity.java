@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String NAME = "USERNAME";
     private static final String PASSWORD = "PASSWORD";
 
+    public static boolean logout_flag = false;
+
     private String name;
     private String password;
 
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
             if(validateCredentials()){
+                MainActivity.logout_flag = false;
                 goToServiceActivity();
                 Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
             }else{
@@ -96,11 +99,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void instantLogin(){
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
-        String user = sharedPreferences.getString(NAME, "");
-        String pass = sharedPreferences.getString(PASSWORD, "");
-        if(!TextUtils.isEmpty(user) && !TextUtils.isEmpty(pass)){
-            goToServiceActivity();
+        if(!MainActivity.logout_flag){
+            SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+            String user = sharedPreferences.getString(NAME, "");
+            String pass = sharedPreferences.getString(PASSWORD, "");
+            if(!TextUtils.isEmpty(user) && !TextUtils.isEmpty(pass)){
+                goToServiceActivity();
+            }
         }
     }
 }
