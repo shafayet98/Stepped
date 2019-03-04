@@ -16,8 +16,8 @@
         android:layout_weight="0.3">
 
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:src="@drawable/bmi1"
             android:id="@+id/imageId" />
     </LinearLayout>
