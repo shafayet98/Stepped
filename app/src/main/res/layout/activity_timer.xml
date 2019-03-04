@@ -45,8 +45,7 @@
                 android:textStyle="bold"
                 android:textSize="16dp"
                 android:textColor="#000"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1"/>
 
             <TextView
                 android:textAlignment="center"
@@ -56,8 +55,7 @@
                 android:textStyle="bold"
                 android:textSize="16dp"
                 android:textColor="#000"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1"/>
 
             <TextView
                 android:textAlignment="center"
@@ -67,14 +65,10 @@
                 android:textStyle="bold"
                 android:textSize="16dp"
                 android:textColor="#000"
-                android:layout_weight="1"
-                />
-
+                android:layout_weight="1"/>
 
         </LinearLayout>
         <!--time title ends-->
-
-
         <!--Main timer starts-->
         <LinearLayout
             android:layout_width="match_parent"
@@ -91,8 +85,7 @@
                 android:textStyle="bold"
                 android:textSize="40dp"
                 android:textColor="#000"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1"/>
 
             <TextView
                 android:textAlignment="center"
@@ -102,8 +95,7 @@
                 android:textStyle="bold"
                 android:textSize="40dp"
                 android:textColor="#000"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1"/>
 
             <TextView
                 android:textAlignment="center"
@@ -113,22 +105,17 @@
                 android:textStyle="bold"
                 android:textSize="40dp"
                 android:textColor="#000"
-                android:layout_weight="1"
-                />
-
+                android:layout_weight="1"/>
 
         </LinearLayout>
         <!--main timer ends-->
-
         <View
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#000"
             android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            />
-
+            android:layout_marginRight="25dp" />
 
         <LinearLayout
             android:layout_marginTop="15dp"
@@ -147,8 +134,7 @@
                 android:background="#fff"
                 android:textSize="30dp"
                 android:textColor="#000"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1"/>
 
             <Button
                 android:textAlignment="center"
@@ -159,8 +145,7 @@
                 android:background="#fff"
                 android:textSize="30dp"
                 android:textColor="#000"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1"/>
 
             <Button
                 android:textAlignment="center"
@@ -171,8 +156,7 @@
                 android:background="#fff"
                 android:textSize="30dp"
                 android:textColor="#000"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1"/>
 
 
         </LinearLayout>
@@ -193,8 +177,7 @@
                 android:background="#fff"
                 android:textSize="30dp"
                 android:textColor="#000"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1"/>
 
             <Button
                 android:textAlignment="center"
@@ -205,8 +188,7 @@
                 android:background="#fff"
                 android:textSize="30dp"
                 android:textColor="#000"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1"/>
 
             <Button
                 android:textAlignment="center"
@@ -217,11 +199,10 @@
                 android:background="#fff"
                 android:textSize="30dp"
                 android:textColor="#000"
-                android:layout_weight="1"
-                />
-
+                android:layout_weight="1"/>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
@@ -239,8 +220,7 @@
                 android:background="#fff"
                 android:textSize="30dp"
                 android:textColor="#000"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1"/>
 
             <Button
                 android:textAlignment="center"
@@ -251,8 +231,7 @@
                 android:background="#fff"
                 android:textSize="30dp"
                 android:textColor="#000"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1"/>
 
             <Button
                 android:textAlignment="center"
@@ -263,11 +242,10 @@
                 android:background="#fff"
                 android:textSize="30dp"
                 android:textColor="#000"
-                android:layout_weight="1"
-                />
-
+                android:layout_weight="1"/>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
@@ -284,8 +262,7 @@
                 android:textStyle="bold"
                 android:textSize="30dp"
                 android:textColor="#000"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1"/>
 
             <Button
                 android:textAlignment="center"
@@ -296,8 +273,7 @@
                 android:background="#fff"
                 android:textSize="30dp"
                 android:textColor="#000"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1"/>
 
             <TextView
                 android:textAlignment="center"
@@ -307,12 +283,9 @@
                 android:textStyle="bold"
                 android:textSize="30dp"
                 android:textColor="#000"
-                android:layout_weight="1"
-                />
-
+                android:layout_weight="1"/>
 
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_marginTop="10dp"
@@ -334,8 +307,7 @@
                 android:textAlignment="viewStart"
                 android:textColor="#e12525"
                 android:background="#fff"
-                android:paddingLeft="10dp"
-                />
+                android:paddingLeft="10dp"/>
 
             <Button
                 android:layout_width="wrap_content"
@@ -347,28 +319,10 @@
                 android:textColor="#e12525"
                 android:background="#fff"
                 android:textAlignment="viewEnd"
-                android:paddingRight="10dp"
-                />
-
-
-
-
+                android:paddingRight="10dp"/>
 
         </LinearLayout>
 
-
-
-
-
     </LinearLayout>
-
-
-
-
-
-
-
-
-
 
 </LinearLayout>
