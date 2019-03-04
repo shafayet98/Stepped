@@ -36,6 +36,13 @@ public class ServicesActivity extends AppCompatActivity {
         init();
         getBmi();
 
+        timerId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ServicesActivity.this, TimerActivity.class));
+            }
+        });
+
         pedometerId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
