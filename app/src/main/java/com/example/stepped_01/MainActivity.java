@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String SHARED_PREF = "SHARED_PREF";
     private static final String NAME = "USERNAME";
     private static final String PASSWORD = "PASSWORD";
+    private static final String LOGIN_FLAG = "LOGIN_FLAG";
 
     public static boolean logout_flag = false;
 
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         init();
+        setLoginFlag();
         instantLogin();
 
         signupId.setOnClickListener(new View.OnClickListener() {
@@ -108,4 +110,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    private void setLoginFlag(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+        MainActivity.logout_flag = sharedPreferences.getBoolean(LOGIN_FLAG, true);
+    }
+
 }

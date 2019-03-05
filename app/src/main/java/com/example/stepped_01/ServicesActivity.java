@@ -25,6 +25,7 @@ public class ServicesActivity extends AppCompatActivity {
     private static final String SHARED_PREF = "SHARED_PREF";
     private static final String BMI = "BMI";
     private static final String RESULT = "RESULT";
+    private static final String LOGIN_FLAG = "LOGIN_FLAG";
 
     private String bmi, result;
 
@@ -141,7 +142,8 @@ public class ServicesActivity extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         MainActivity.logout_flag = true;
-                        Toast.makeText(ServicesActivity.this, "clicked", Toast.LENGTH_SHORT).show();
+                        saveLoginFlag();
+                        Toast.makeText(ServicesActivity.this, "Logout Successful", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(ServicesActivity.this, MainActivity.class));
                     }
                 });
@@ -156,5 +158,15 @@ public class ServicesActivity extends AppCompatActivity {
 
         AlertDialog alert11 = builder1.create();
         alert11.show();
+    }
+
+    private void saveLoginFlag(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putBoolean(LOGIN_FLAG, MainActivity.logout_flag);
+
+        editor.commit();
+        editor.apply();
     }
 }
