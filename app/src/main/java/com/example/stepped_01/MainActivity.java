@@ -11,17 +11,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.stepped_01.Util.SharedPrefUtility;
+
 public class MainActivity extends AppCompatActivity {
 
-    private TextView signupId;
+    private TextView signUpId;
     private Button loginId;
     private EditText usernameId;
     private EditText passwordId;
-
-    private static final String SHARED_PREF = "SHARED_PREF";
-    private static final String NAME = "USERNAME";
-    private static final String PASSWORD = "PASSWORD";
-    private static final String LOGIN_FLAG = "LOGIN_FLAG";
 
     public static boolean logout_flag = false;
 
@@ -37,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setLoginFlag();
         instantLogin();
 
-        signupId.setOnClickListener(new View.OnClickListener() {
+        signUpId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
             startActivity(new Intent(MainActivity.this, SignUpActivity.class));
@@ -49,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
             if(validateCredentials()){
                 MainActivity.logout_flag = false;
+                saveLoginFlag();
                 goToServiceActivity();
                 Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
             }else{
@@ -60,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init(){
-        signupId = findViewById(R.id.signupId);
+        signUpId = findViewById(R.id.signupId);
         loginId = findViewById(R.id.loginId);
         usernameId = findViewById(R.id.usernameId);
         passwordId = findViewById(R.id.passwordId);
@@ -84,9 +82,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean validateCredentials(){
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
-        String user = sharedPreferences.getString(NAME, "");
-        String pass = sharedPreferences.getString(PASSWORD, "");
+        SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
+        String user = sharedPreferences.getString(SharedPrefUtility.NAME, "");
+        String pass = sharedPreferences.getString(SharedPrefUtility.PASSWORD, "");
         if(validateData()){
             if(name.equals(user) && password.equals(pass)){
                 return true;
@@ -102,9 +100,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void instantLogin(){
         if(!MainActivity.logout_flag){
-            SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
-            String user = sharedPreferences.getString(NAME, "");
-            String pass = sharedPreferences.getString(PASSWORD, "");
+            SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
+            String user = sharedPreferences.getString(SharedPrefUtility.NAME, "");
+            String pass = sharedPreferences.getString(SharedPrefUtility.PASSWORD, "");
             if(!TextUtils.isEmpty(user) && !TextUtils.isEmpty(pass)){
                 goToServiceActivity();
             }
@@ -112,8 +110,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setLoginFlag(){
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
-        MainActivity.logout_flag = sharedPreferences.getBoolean(LOGIN_FLAG, true);
+        SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
+        MainActivity.logout_flag = sharedPreferences.getBoolean(SharedPrefUtility.LOGIN_FLAG, true);
+    }
+
+    private void saveLoginFlag(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putBoolean(SharedPrefUtility.LOGIN_FLAG, MainActivity.logout_flag);
+
+        editor.commit();
+        editor.apply();
     }
 
 }

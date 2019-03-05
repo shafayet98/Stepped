@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.stepped_01.Util.SharedPrefUtility;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -57,12 +59,12 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void saveSignUpData(){
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
         SharedPreferences.Editor editor= sharedPreferences.edit();
 
-        editor.putString(NAME, name);
-        editor.putString(EMAIL, email);
-        editor.putString(PASSWORD, password);
+        editor.putString(SharedPrefUtility.NAME, name);
+        editor.putString(SharedPrefUtility.EMAIL, email);
+        editor.putString(SharedPrefUtility.PASSWORD, password);
         editor.apply();
         editor.commit();
     }

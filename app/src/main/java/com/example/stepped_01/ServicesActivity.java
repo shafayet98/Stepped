@@ -14,6 +14,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.stepped_01.Util.SharedPrefUtility;
+
 public class ServicesActivity extends AppCompatActivity {
 
     private CardView pedometerId;
@@ -21,11 +23,6 @@ public class ServicesActivity extends AppCompatActivity {
     private CardView timerId;
     private CardView alarmId;
     private Toolbar toolbarId;
-
-    private static final String SHARED_PREF = "SHARED_PREF";
-    private static final String BMI = "BMI";
-    private static final String RESULT = "RESULT";
-    private static final String LOGIN_FLAG = "LOGIN_FLAG";
 
     private String bmi, result;
 
@@ -79,9 +76,9 @@ public class ServicesActivity extends AppCompatActivity {
     }
 
     private void getBmi(){
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
-        bmi = sharedPreferences.getString(BMI, "");
-        result = sharedPreferences.getString(RESULT, "");
+        SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
+        bmi = sharedPreferences.getString(SharedPrefUtility.BMI, "");
+        result = sharedPreferences.getString(SharedPrefUtility.RESULT, "");
     }
 
     private void alertUserForBmi(){
@@ -161,10 +158,10 @@ public class ServicesActivity extends AppCompatActivity {
     }
 
     private void saveLoginFlag(){
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putBoolean(LOGIN_FLAG, MainActivity.logout_flag);
+        editor.putBoolean(SharedPrefUtility.LOGIN_FLAG, MainActivity.logout_flag);
 
         editor.commit();
         editor.apply();
