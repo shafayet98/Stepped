@@ -24,11 +24,6 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText emailId;
     private EditText passId;
 
-    private static final String SHARED_PREF = "SHARED_PREF";
-    private static final String NAME = "USERNAME";
-    private static final String EMAIL = "EMAIL";
-    private static final String PASSWORD = "PASSWORD";
-
     private String name, email, password;
 
     @Override
