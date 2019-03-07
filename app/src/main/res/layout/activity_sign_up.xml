@@ -5,20 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="3"
-    android:background="#fff"
+    android:background="#f5f3f4"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".SignUpActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="right"
         android:layout_weight="1">
 
         <ImageView
             android:layout_width="240dp"
             android:layout_height="240dp"
-            android:src="@drawable/logo"
+            android:src="@drawable/run"
             android:id="@+id/imageId" />
 
     </LinearLayout>
@@ -33,11 +33,25 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
+            android:hint="Name"
+            android:textAlignment="center"
             android:background="@drawable/rounded_edit_text"
-            android:id="@+id/usernameId"
+            android:id="@+id/nameId"
             android:padding="12dp"
-            android:textSize="24dp"
+            android:textSize="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:textAlignment="center"
+            android:background="@drawable/rounded_edit_text"
+            android:id="@+id/emailId"
+            android:padding="12dp"
+            android:textSize="20dp"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="35dp"
             android:layout_marginRight="35dp" />
@@ -46,41 +60,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
+            android:textAlignment="center"
             android:background="@drawable/rounded_edit_text"
-            android:id="@+id/passwordId"
+            android:id="@+id/passId"
             android:padding="12dp"
-            android:textSize="24dp"
+            android:textSize="20dp"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="35dp"
             android:layout_marginRight="35dp" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginLeft="35dp">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Log in"
-                android:id="@+id/loginId"
-                android:background="@drawable/rounded_button"
-                android:padding="12dp"
-                android:textColor="#fff"
-                android:textSize="18dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="Don't have an account?"
-                android:textSize="18dp"
-                android:textColor="#000"
-                android:id="@+id/signupId" />
-
-        </LinearLayout>
+            android:text="Get Started"
+            android:id="@+id/signUpId"
+            android:background="@drawable/rounded_button"
+            android:padding="12dp"
+            android:textColor="#fff"
+            android:textSize="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp" />
 
     </LinearLayout>
 

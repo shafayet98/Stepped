@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".ServicesActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <include
+            android:id="@+id/toolbarId"
+            layout="@layout/toolbar"/>
+
+        <!--Product 1-->
+        <android.support.v7.widget.CardView
+            android:id="@+id/pedometerId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="14dp"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="#ffe2f4"
+            android:layout_margin="18dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/image_view"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:src="@drawable/pedorun"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignParentRight="true"/>
+
+                <TextView
+                    android:padding="13dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pedometer"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:textSize="24dp"
+                    android:layout_alignParentLeft="true" />
+
+                <TextView
+                    android:padding="13dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cal: 250"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    android:gravity="left"
+                    android:layout_alignParentBottom="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Steps: 500"
+                    android:textColor="#000"
+                    android:layout_marginLeft="72dp"
+                    android:padding="13dp"
+                    android:textSize="18dp"
+                    android:gravity="left|center"
+                    android:id="@+id/psd"
+                    android:layout_alignParentBottom="true" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+        <!--Product 1 ends-->
+        <!--product 2 starts-->
+        <android.support.v7.widget.CardView
+            android:id="@+id/bmiId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="14dp"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="#a7d6cc"
+            android:layout_margin="18dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:src="@drawable/serbmi"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:padding="13dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="BMI Calculator"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:gravity="right"
+                    android:layout_alignParentBottom="true" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+        <!--product 2 ends-->
+        <!--Product 3 starts-->
+        <android.support.v7.widget.CardView
+            android:id="@+id/timerId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="14dp"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="#f2f2f2"
+            android:layout_margin="18dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:src="@drawable/sertime"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignParentRight="true"/>
+
+                <TextView
+                    android:padding="13dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Timer"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:layout_alignParentLeft="true" />
+
+                <TextView
+                    android:padding="13dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="05:36"
+                    android:textSize="28dp"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:gravity="left"
+                    android:layout_alignParentBottom="true" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+        <!--product 3 ends-->
+        <!--Product 4 starts-->
+        <android.support.v7.widget.CardView
+            android:id="@+id/alarmId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="14dp"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="#f6c0af"
+            android:layout_margin="18dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:src="@drawable/seralrm"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:padding="13dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Alarm"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:textSize="24dp"
+                    android:gravity="right"
+                    android:layout_alignParentBottom="true" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <!--Product 4 ends-->
+    </LinearLayout>
+
+</ScrollView>
