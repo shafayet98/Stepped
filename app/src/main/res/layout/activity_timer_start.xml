@@ -24,7 +24,8 @@
             android:layout_alignParentBottom="true"
             android:progress="80"
             android:progressDrawable="@drawable/circular"
-            android:background="@drawable/circular_background"/>
+            android:background="@drawable/circular_background"
+            android:rotation="990"/>
 
         <LinearLayout
             android:layout_width="match_parent"
