@@ -19,7 +19,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:progress="10"
+            android:progress="0"
             android:progressDrawable="@drawable/circular"
             android:background="@drawable/circular_background"
             android:rotation="990"

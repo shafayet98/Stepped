@@ -2,6 +2,7 @@ package com.example.stepped_01;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.example.stepped_01.Util.SharedPrefUtility;
 
 public class PedometerActivity extends AppCompatActivity {
 
@@ -26,6 +29,7 @@ public class PedometerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedometer);
         init();
+        setInitialGoals();
 
         setGoalsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +52,7 @@ public class PedometerActivity extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         goalsTextView.setText(stepsAlertTextView.getText().toString());
+                        saveStepGoals();
                     }
                 });
 
@@ -75,5 +80,24 @@ public class PedometerActivity extends AppCompatActivity {
         setGoalsButton = findViewById(R.id.setGoalsButton);
         goalsTextView = findViewById(R.id.goalsTextView);
         weeklyProgressButton = findViewById(R.id.weeklyProgressButton);
+
+        pedometerProgressBar.setMax(10000);
+    }
+
+    private void saveStepGoals() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putInt(SharedPrefUtility.STEP_GOALS, Integer.parseInt(goalsTextView.getText().toString()));
+
+        editor.commit();
+        editor.apply();
+    }
+
+    private void setInitialGoals(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
+        int goals = sharedPreferences.getInt(SharedPrefUtility.STEP_GOALS, 10000);
+        pedometerProgressBar.setMax(goals);
+        goalsTextView.setText(String.valueOf(goals));
     }
 }
