@@ -69,7 +69,7 @@ public class BmiCalculatorActivity extends AppCompatActivity {
             bmi = new Bmi(Double.parseDouble(heightId.getText().toString()),
                     Double.parseDouble(weightId.getText().toString()),
                     getCheckedValue(),
-                    Integer.parseInt(ageId.getText().toString()));
+                    Double.parseDouble(ageId.getText().toString()));
 
             calculations = new BmiCalculations(bmi);
             return true;

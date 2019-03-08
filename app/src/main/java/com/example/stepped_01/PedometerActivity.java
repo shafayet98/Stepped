@@ -8,6 +8,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -56,7 +57,11 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
     public void onSensorChanged(SensorEvent sensorEvent) {
         //if(walking){
             steps = (int)sensorEvent.values[0];
-            pedometerProgressBar.setProgress(steps);
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+                pedometerProgressBar.setProgress(steps, true);
+            }else{
+                pedometerProgressBar.setProgress(steps);
+            }
             stepsTextView.setText(String.valueOf(steps));
             Log.d("dag", "onSensorChanged: " + steps);
        // }
@@ -135,7 +140,7 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
         SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putInt(SharedPrefUtility.STEP_GOALS, Integer.parseInt(goalsTextView.getText().toString()));
+        editor.putInt(SharedPrefUtility.STEP_GOALS, (int) Double.parseDouble(goalsTextView.getText().toString()));
 
         editor.commit();
         editor.apply();

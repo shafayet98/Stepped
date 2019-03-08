@@ -12,6 +12,6 @@
         android:layout_height="wrap_content"
         android:gravity="top"
         android:hint="Enter steps"
-        android:inputType="textMultiLine"/>
+        android:inputType="number"/>
 
 </LinearLayout>

@@ -40,7 +40,9 @@
             android:textSize="24dp"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="35dp"
-            android:layout_marginRight="35dp" />
+            android:layout_marginRight="35dp"
+            android:singleLine="true"
+            android:nextFocusDown="@+id/passwordId"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -50,9 +52,11 @@
             android:id="@+id/passwordId"
             android:padding="12dp"
             android:textSize="24dp"
+            android:inputType="textPassword"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="35dp"
-            android:layout_marginRight="35dp" />
+            android:layout_marginRight="35dp"
+            android:singleLine="true"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
