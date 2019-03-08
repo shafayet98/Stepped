@@ -4,13 +4,13 @@ public class Bmi {
     private double height;
     private double weight;
     private String gender;
-    private int age;
+    private double age;
 
     public Bmi() {
 
     }
 
-    public Bmi(double height, double weight, String gender, int age) {
+    public Bmi(double height, double weight, String gender, double age) {
         this.height = height;
         this.weight = weight;
         this.gender = gender;
@@ -45,11 +45,11 @@ public class Bmi {
         this.gender = gender;
     }
 
-    public int getAge() {
+    public double getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(double age) {
         this.age = age;
     }
 }

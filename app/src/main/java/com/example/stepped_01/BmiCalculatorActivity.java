@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.stepped_01.Bmi.Bmi;
 import com.example.stepped_01.Bmi.BmiCalculations;
+import com.example.stepped_01.Util.SharedPrefUtility;
 
 public class BmiCalculatorActivity extends AppCompatActivity {
 
@@ -28,10 +29,6 @@ public class BmiCalculatorActivity extends AppCompatActivity {
 
     Bmi bmi;
     BmiCalculations calculations;
-    private static final String SHARED_PREF = "SHARED_PREF";
-    private static final String BMI = "BMI";
-    private static final String RESULT = "RESULT";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +69,7 @@ public class BmiCalculatorActivity extends AppCompatActivity {
             bmi = new Bmi(Double.parseDouble(heightId.getText().toString()),
                     Double.parseDouble(weightId.getText().toString()),
                     getCheckedValue(),
-                    Integer.parseInt(ageId.getText().toString()));
+                    Double.parseDouble(ageId.getText().toString()));
 
             calculations = new BmiCalculations(bmi);
             return true;
@@ -112,11 +109,11 @@ public class BmiCalculatorActivity extends AppCompatActivity {
     }
 
     private void saveBmi(){
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putString(BMI, calculations.getBmiNumber());
-        editor.putString(RESULT, calculations.getResultOnBmi());
+        editor.putString(SharedPrefUtility.BMI, calculations.getBmiNumber());
+        editor.putString(SharedPrefUtility.RESULT, calculations.getResultOnBmi());
 
         editor.commit();
         editor.apply();

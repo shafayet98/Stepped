@@ -15,7 +15,6 @@ public class TimerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer);
-
         init();
 
         timerStartId.setOnClickListener(new View.OnClickListener() {
@@ -24,14 +23,9 @@ public class TimerActivity extends AppCompatActivity {
                 startActivity(new Intent(TimerActivity.this,TimerStartActivity.class));
             }
         });
-
     }
 
     public void init(){
-
         timerStartId = findViewById(R.id.timerStartId);
-
-
     }
-
 }

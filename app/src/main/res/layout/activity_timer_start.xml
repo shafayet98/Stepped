@@ -9,8 +9,6 @@
     android:weightSum="3"
     tools:context=".TimerStartActivity">
 
-
-
     <RelativeLayout
         android:layout_weight="2.5"
         android:layout_width="match_parent"
@@ -26,7 +24,8 @@
             android:layout_alignParentBottom="true"
             android:progress="80"
             android:progressDrawable="@drawable/circular"
-            android:background="@drawable/circular_background"/>
+            android:background="@drawable/circular_background"
+            android:rotation="990"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,7 +44,7 @@
                 android:text="5:20:53"
                 android:textColor="#e12525"
                 android:textSize="40dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/progressBarinsideTextID"
@@ -60,14 +59,13 @@
                 android:textColor="#e12525"
                 android:textStyle="bold"
                 android:background="#fff"
-                android:textSize="14dp" />
+                android:textSize="14dp"/>
 
         </LinearLayout>
 
     </RelativeLayout>
 
     <LinearLayout
-
         android:layout_weight="0.5"
         android:weightSum="2"
         android:layout_width="match_parent"
@@ -97,10 +95,6 @@
             android:background="#fff"
             android:text="Pause"/>
 
-
     </LinearLayout>
-
-
-
 
 </LinearLayout>

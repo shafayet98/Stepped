@@ -14,6 +14,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.stepped_01.Util.SharedPrefUtility;
+
 public class ServicesActivity extends AppCompatActivity {
 
     private CardView pedometerId;
@@ -21,10 +23,6 @@ public class ServicesActivity extends AppCompatActivity {
     private CardView timerId;
     private CardView alarmId;
     private Toolbar toolbarId;
-
-    private static final String SHARED_PREF = "SHARED_PREF";
-    private static final String BMI = "BMI";
-    private static final String RESULT = "RESULT";
 
     private String bmi, result;
 
@@ -62,6 +60,7 @@ public class ServicesActivity extends AppCompatActivity {
         });
     }
 
+
     @Override
     public void onBackPressed() {
         this.moveTaskToBack(true);
@@ -78,9 +77,9 @@ public class ServicesActivity extends AppCompatActivity {
     }
 
     private void getBmi(){
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
-        bmi = sharedPreferences.getString(BMI, "");
-        result = sharedPreferences.getString(RESULT, "");
+        SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
+        bmi = sharedPreferences.getString(SharedPrefUtility.BMI, "");
+        result = sharedPreferences.getString(SharedPrefUtility.RESULT, "");
     }
 
     private void alertUserForBmi(){
@@ -141,7 +140,8 @@ public class ServicesActivity extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         MainActivity.logout_flag = true;
-                        Toast.makeText(ServicesActivity.this, "clicked", Toast.LENGTH_SHORT).show();
+                        saveLoginFlag();
+                        Toast.makeText(ServicesActivity.this, "Logout Successful", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(ServicesActivity.this, MainActivity.class));
                     }
                 });
@@ -156,5 +156,15 @@ public class ServicesActivity extends AppCompatActivity {
 
         AlertDialog alert11 = builder1.create();
         alert11.show();
+    }
+
+    private void saveLoginFlag(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putBoolean(SharedPrefUtility.LOGIN_FLAG, MainActivity.logout_flag);
+
+        editor.commit();
+        editor.apply();
     }
 }

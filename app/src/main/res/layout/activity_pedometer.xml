@@ -19,9 +19,11 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:progress="80"
+            android:progress="0"
             android:progressDrawable="@drawable/circular"
-            android:background="@drawable/circular_background"/>
+            android:background="@drawable/circular_background"
+            android:rotation="990"
+            android:id="@+id/pedometerProgressBar"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,20 +32,19 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/progressBarinsideText"
+                android:id="@+id/stepsTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:gravity="center"
-                android:text="10,000"
+                android:text="0"
                 android:textColor="#e12525"
                 android:textSize="40dp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/progressBarinsideTextID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -78,7 +79,8 @@
                 android:textSize="22dp"
                 android:layout_gravity="center"
                 android:textColor="#e12525"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:id="@+id/kilometerTextView"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -106,7 +108,8 @@
                 android:layout_gravity="center"
                 android:textSize="22dp"
                 android:textColor="#e12525"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:id="@+id/minutesTextView"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -134,7 +137,8 @@
                 android:layout_gravity="center"
                 android:textSize="22dp"
                 android:textColor="#e12525"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:id="@+id/totalCalorieTextView"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -164,7 +168,8 @@
             android:text="Set Goal"
             android:textColor="#fff"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="15dp" />
+            android:layout_marginRight="15dp"
+            android:id="@+id/setGoalsButton"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -177,10 +182,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10,000 "
+            android:text="10,000"
+            android:layout_marginRight="10dp"
             android:textColor="#000"
             android:textSize="18dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:id="@+id/goalsTextView"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -204,7 +211,8 @@
             android:textAlignment="center"
             android:background="@drawable/rounded_button"
             android:text="Weekly Progress"
-            android:textColor="#fff" />
+            android:textColor="#fff"
+            android:id="@+id/weeklyProgressButton"/>
 
     </LinearLayout>
 
