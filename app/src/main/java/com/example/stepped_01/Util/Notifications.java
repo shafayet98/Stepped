@@ -9,7 +9,7 @@ public class Notifications {
     public static final String NOTIFICATION_CHANNEL_1_ID = "PEDOMETER_NOTIFICATION";
     public static final String NOTIFICATION_CHANNEL_1_NAME = "Stepped";
 
-    public static void createNotificationChannel(NotificationManager notficationManager){
+    public static void createNotificationChannel(NotificationManager notificationManager){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel1 = new NotificationChannel(
                     NOTIFICATION_CHANNEL_1_ID,
@@ -18,7 +18,7 @@ public class Notifications {
             );
             channel1.setDescription("This is Channel 1");
 
-            NotificationManager manager = notficationManager;
+            NotificationManager manager = notificationManager;
             manager.createNotificationChannel(channel1);
         }
     }

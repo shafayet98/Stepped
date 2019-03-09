@@ -21,7 +21,7 @@ import android.widget.Toast;
 
 import com.example.stepped_01.Util.SharedPrefUtility;
 
-public class PedometerActivity extends AppCompatActivity implements SensorEventListener {
+public class PedometerActivity extends AppCompatActivity {
 
     private ProgressBar pedometerProgressBar;
     private TextView stepsTextView;
@@ -32,18 +32,14 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
     private TextView goalsTextView;
     private Button weeklyProgressButton;
 
-    public static SensorManager sensorManager;
-    public static Sensor sensor;
-    public int steps;
-    //public boolean walking = true;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedometer);
         init();
         setInitialGoals();
+
+        loadSteps();
 
         setGoalsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,39 +49,6 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
         });
     }
 
-    @Override
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        //if(walking){
-            steps = (int)sensorEvent.values[0];
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-                pedometerProgressBar.setProgress(steps, true);
-            }else{
-                pedometerProgressBar.setProgress(steps);
-            }
-            stepsTextView.setText(String.valueOf(steps));
-            Log.d("dag", "onSensorChanged: " + steps);
-       // }
-    }
-
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int i) {
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
-        registerSensor();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        //walking = false;
-        unRegisterSensor();
-
-    }
 
     private void alertUserForStepGoals(){
         final View view = getLayoutInflater().inflate(R.layout.custom_alert_dialog, null);
@@ -129,11 +92,6 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
         weeklyProgressButton = findViewById(R.id.weeklyProgressButton);
 
         pedometerProgressBar.setMax(10000);
-        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-    }
-
-    private boolean checkSensor(){
-        return sensor == null ? false : true;
     }
 
     private void saveStepGoals() {
@@ -153,15 +111,10 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
         goalsTextView.setText(String.valueOf(goals));
     }
 
-    private void registerSensor(){
-        if(checkSensor()){
-            sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
-        }else{
-            Toast.makeText(PedometerActivity.this, "Sensor not found", Toast.LENGTH_SHORT).show();
-        }
+    private void loadSteps(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
+        int steps = sharedPreferences.getInt(SharedPrefUtility.STEPS, 0);
+        pedometerProgressBar.setProgress(steps);
+        stepsTextView.setText(String.valueOf(steps));
     }
-    private void unRegisterSensor(){
-        sensorManager.unregisterListener(this);
-    }
-
 }

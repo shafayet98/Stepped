@@ -12,5 +12,6 @@ public class SharedPrefUtility {
     public static final String PASSWORD = "PASSWORD";
     public static final String LOGIN_FLAG = "LOGIN_FLAG";
     public static final String STEP_GOALS = "STEP_GOALS";
+    public static final String STEPS = "STEPS";
 
 }
