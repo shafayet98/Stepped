@@ -43,7 +43,7 @@ public class PedometerService extends Service implements SensorEventListener {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
         sensorManager.registerListener(this, sensor,
                 SensorManager.SENSOR_DELAY_NORMAL);
         registerSensor();
@@ -61,13 +61,13 @@ public class PedometerService extends Service implements SensorEventListener {
                 .setProgress(readInitialGoals(), pedometer.getSteps(), false);
 
         startForeground(1, notification.build());
+        notificationManagerCompat.notify(1, notification.build());
 
         new Thread(new Runnable() {
             @Override
             public void run() {
                 notification.setProgress(readInitialGoals(), pedometer.getSteps(), false);
                 notificationManagerCompat.notify(1, notification.build());
-                SystemClock.sleep(200);
             }
         });
 
@@ -84,7 +84,7 @@ public class PedometerService extends Service implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
-        pedometer.increaseSteps();
+        pedometer.setSteps((int)sensorEvent.values[0]);
         saveSteps();
     }
 
