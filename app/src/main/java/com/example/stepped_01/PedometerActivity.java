@@ -41,18 +41,13 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
     private SensorManager sensorManager = null;
     private Sensor sensor = null;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedometer);
         init();
         setInitialGoals();
-
         loadSteps();
-
-        PedometerService.SensorEventLoggerTask task = new PedometerService.SensorEventLoggerTask(this);
-        task.execute(10);
 
         setGoalsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,6 +149,7 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
         saveSteps();
         pedometerProgressBar.setProgress(pedometer.getSteps());
         stepsTextView.setText(String.valueOf(pedometer.getSteps()));
+
     }
 
     @Override
@@ -184,5 +180,42 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
     private void unRegisterSensor(){
         sensorManager.unregisterListener(this);
     }
+
+//    public class SensorEventLoggerTask extends
+//            AsyncTask<SensorEvent, Void, Void> {
+//
+//        WeakReference<PedometerActivity> pedometerActivityWeakReference;
+//
+//        public SensorEventLoggerTask(PedometerActivity activity) {
+//            this.pedometerActivityWeakReference = new WeakReference<>(activity);
+//        }
+//
+//        @Override
+//        protected Void doInBackground(SensorEvent... events) {
+//
+//            pedometer.increaseSteps();
+//            return null;
+//        }
+//
+//        @Override
+//        protected void onPreExecute() {
+//            super.onPreExecute();
+//        }
+//
+//        @Override
+//        protected void onProgressUpdate(Void... values) {
+//            super.onProgressUpdate(values);
+//            PedometerActivity activity = pedometerActivityWeakReference.get();
+//
+//            activity.pedometerProgressBar.setProgress(pedometer.getSteps());
+//            activity.stepsTextView.setText(pedometer.getSteps());
+//            saveSteps();
+//        }
+//
+//        @Override
+//        protected void onPostExecute(Void aVoid) {
+//            super.onPostExecute(aVoid);
+//        }
+//    }
 
 }

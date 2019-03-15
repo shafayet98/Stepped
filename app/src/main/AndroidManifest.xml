@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.stepped_01">
 
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:name=".Util.App"
@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+
+        <activity android:name=".MainActivity" />
         <activity android:name=".TimerStartActivity" />
         <activity android:name=".TimerActivity" />
         <activity android:name=".PedometerActivity" />
@@ -27,7 +28,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".Pedometer.PedometerService" />
+
+        <service android:name=".Pedometer.PedometerService"
+            android:enabled="true"/>
     </application>
 
 </manifest>

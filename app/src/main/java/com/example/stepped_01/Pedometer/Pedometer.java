@@ -1,5 +1,11 @@
 package com.example.stepped_01.Pedometer;
 
+import android.content.SharedPreferences;
+
+import com.example.stepped_01.Util.SharedPrefUtility;
+
+import static android.content.Context.MODE_PRIVATE;
+
 public class Pedometer {
     private int steps;
     private double kilometers;
@@ -39,4 +45,5 @@ public class Pedometer {
     public void increaseSteps(){
         this.steps++;
     }
+
 }
