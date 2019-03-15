@@ -46,7 +46,6 @@ public class ServicesActivity extends AppCompatActivity {
         pedometerId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startService();
                 startActivity(new Intent(ServicesActivity.this, PedometerActivity.class));
             }
         });
@@ -169,14 +168,5 @@ public class ServicesActivity extends AppCompatActivity {
 
         editor.commit();
         editor.apply();
-    }
-
-    public void startService() {
-        //String input = editTextInput.getText().toString();
-
-        Intent serviceIntent = new Intent(this, PedometerService.class);
-        //serviceIntent.putExtra("inputExtra", input);
-
-        ContextCompat.startForegroundService(this, serviceIntent);
     }
 }

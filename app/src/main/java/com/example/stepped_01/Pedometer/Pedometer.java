@@ -8,6 +8,10 @@ public class Pedometer {
     public Pedometer() {
     }
 
+    public Pedometer(int steps) {
+        this.steps = steps;
+    }
+
     public int getSteps() {
         return steps;
     }

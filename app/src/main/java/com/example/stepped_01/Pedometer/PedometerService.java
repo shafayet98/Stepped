@@ -1,7 +1,5 @@
 package com.example.stepped_01.Pedometer;
 
-import android.app.Notification;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
@@ -10,16 +8,18 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.AsyncTask;
 import android.os.IBinder;
-import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
-
+import com.example.stepped_01.PedometerActivity;
 import com.example.stepped_01.R;
 import com.example.stepped_01.ServicesActivity;
 import com.example.stepped_01.Util.Notifications;
 import com.example.stepped_01.Util.SharedPrefUtility;
+
+import java.lang.ref.WeakReference;
 
 public class PedometerService extends Service implements SensorEventListener {
 
@@ -28,10 +28,24 @@ public class PedometerService extends Service implements SensorEventListener {
     public static Pedometer pedometer = new Pedometer();
     NotificationManagerCompat notificationManagerCompat;
 
+    final NotificationCompat.Builder notification = new NotificationCompat.Builder(this, Notifications.NOTIFICATION_CHANNEL_1_ID);
+    SensorEventNotificationTask task = new SensorEventNotificationTask();
+
     @Override
     public void onCreate() {
         super.onCreate();
         notificationManagerCompat = notificationManagerCompat.from(this);
+        Intent notificationIntent = new Intent(this, ServicesActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,
+                0, notificationIntent, 0);
+        notification.setContentTitle("Stepped")
+                .setContentText("Steps: " + pedometer.getSteps())
+                .setSmallIcon(R.drawable.running)
+                .setContentIntent(pendingIntent)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setProgress(readInitialGoals(), pedometer.getSteps(), false);
+
+        task.execute(10);
     }
 
     @Override
@@ -43,34 +57,13 @@ public class PedometerService extends Service implements SensorEventListener {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR);
         sensorManager.registerListener(this, sensor,
-                SensorManager.SENSOR_DELAY_NORMAL);
+                SensorManager.SENSOR_DELAY_UI);
         registerSensor();
-
-        Intent notificationIntent = new Intent(this, ServicesActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,
-                0, notificationIntent, 0);
-
-        final NotificationCompat.Builder notification = new NotificationCompat.Builder(this, Notifications.NOTIFICATION_CHANNEL_1_ID)
-                .setContentTitle("Stepped")
-                .setContentText("Steps: " + pedometer.getSteps())
-                .setSmallIcon(R.drawable.running)
-                .setContentIntent(pendingIntent)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setProgress(readInitialGoals(), pedometer.getSteps(), false);
 
         startForeground(1, notification.build());
         notificationManagerCompat.notify(1, notification.build());
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                notification.setProgress(readInitialGoals(), pedometer.getSteps(), false);
-                notificationManagerCompat.notify(1, notification.build());
-            }
-        });
-
         return START_STICKY;
     }
 
@@ -84,7 +77,7 @@ public class PedometerService extends Service implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
-        pedometer.setSteps((int)sensorEvent.values[0]);
+        pedometer.increaseSteps();
         saveSteps();
     }
 
@@ -128,6 +121,67 @@ public class PedometerService extends Service implements SensorEventListener {
         SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
         int steps = sharedPreferences.getInt(SharedPrefUtility.STEPS, 0);
         return steps;
+    }
+
+    public static class SensorEventLoggerTask extends
+            AsyncTask<Integer, Void, Void> {
+
+        WeakReference<PedometerActivity> pedometerActivityWeakReference;
+
+        public SensorEventLoggerTask(PedometerActivity activity) {
+            this.pedometerActivityWeakReference = new WeakReference<>(activity);
+        }
+
+        @Override
+        protected Void doInBackground(Integer... events) {
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+            PedometerActivity activity = pedometerActivityWeakReference.get();
+
+            activity.pedometerProgressBar.setProgress(pedometer.getSteps());
+            activity.stepsTextView.setText(pedometer.getSteps());
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+        }
+    }
+
+    public class SensorEventNotificationTask extends
+            AsyncTask<Integer, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Integer... events) {
+            notificationManagerCompat.notify(1, notification.build());
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+            notification.setProgress(readInitialGoals(), pedometer.getSteps(), false);
+            notification.setContentText("Steps: " + pedometer.getSteps());
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+        }
     }
 
 }
