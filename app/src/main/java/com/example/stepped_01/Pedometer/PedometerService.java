@@ -40,6 +40,7 @@ public class PedometerService extends Service implements SensorEventListener {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startForeground(1, notification.build());
         }
+        pedometer = new Pedometer(loadSteps());
     }
 
     @Override
@@ -67,8 +68,10 @@ public class PedometerService extends Service implements SensorEventListener {
                 .setContentText("Steps: " + pedometer.getSteps())
                 .setSmallIcon(R.drawable.running)
                 .setContentIntent(pendingIntent)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setProgress(readInitialGoals(), pedometer.getSteps(), false);
+                .setPriority(NotificationCompat.PRIORITY_LOW)
+                .setProgress(readInitialGoals(), pedometer.getSteps(), false)
+                .setDefaults(0);
+
 
         startForeground(1, notification.build());
         notificationManagerCompat.notify(1, notification.build());
