@@ -17,6 +17,7 @@ public class Notifications {
                     NotificationManager.IMPORTANCE_HIGH
             );
             channel1.setDescription("This is Channel 1");
+            channel1.setSound(null, null);
 
             NotificationManager manager = notificationManager;
             manager.createNotificationChannel(channel1);
