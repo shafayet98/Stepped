@@ -75,7 +75,7 @@ public class PedometerService extends Service implements SensorEventListener {
 
         startForeground(1, notification.build());
         notificationManagerCompat.notify(1, notification.build());
-        return START_STICKY;
+        return START_NOT_STICKY;
     }
 
 
