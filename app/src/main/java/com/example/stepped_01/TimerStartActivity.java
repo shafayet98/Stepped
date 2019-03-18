@@ -1,10 +1,12 @@
 package com.example.stepped_01;
 
+import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 public class TimerStartActivity extends AppCompatActivity {
 
-    private int hour, min, sec, totalmilis;
+    private int hour, min, sec, totalMilli, progress;
     private int finalHour, finalMin, finalSec;
     private boolean isPaused = false;
     private int remaining = 0;
@@ -26,6 +28,7 @@ public class TimerStartActivity extends AppCompatActivity {
     private Button pauseId;
     private TextView resetId;
     private Button backButtonId;
+    private ProgressBar timerProgressBar;
 
     private static final String FORMAT = "%02d:%02d:%02d";
 
@@ -33,21 +36,7 @@ public class TimerStartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer_start);
-
-        showTimerText = findViewById(R.id.showTimerText);
-        pauseId = findViewById(R.id.pauseId);
-        resetId = findViewById(R.id.resetId);
-        backButtonId = findViewById(R.id.backButtonId);
-
-        hour = getIntent().getIntExtra(TImerUtil.HOUR, 0);
-        min = getIntent().getIntExtra(TImerUtil.MINUTE, 0);
-        sec = getIntent().getIntExtra(TImerUtil.SECOND, 0);
-
-        finalHour = hour * 3600000;
-        finalMin = min * 60000;
-        finalSec = sec * 1000;
-        totalMin = finalHour + finalMin + finalSec;
-        totalmilis = totalMin;
+        init();
 
         countDownTimer = new CountDownTimer(totalMin, 1000) { // adjust the milli seconds here
             public void onTick(long millisUntilFinished) {
@@ -59,10 +48,14 @@ public class TimerStartActivity extends AppCompatActivity {
                                 TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
 
                 remaining += 1000;
+                progress += 1000;
+                timerProgressBar.setProgress(progress);
             }
 
             public void onFinish() {
                 showTimerText.setText("done!");
+                pauseId.setEnabled(false);
+                pauseId.setTextColor(Color.parseColor("#d7ddd9"));
             }
         }.start();
 
@@ -94,9 +87,13 @@ public class TimerStartActivity extends AppCompatActivity {
                                                 TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
 
                                 remaining += 1000;
+                                progress += 1000;
+                                timerProgressBar.setProgress(progress);
                             }
                             public void onFinish() {
                                 showTimerText.setText("done!");
+                                pauseId.setEnabled(false);
+                                pauseId.setTextColor(Color.parseColor("#d7ddd9"));
                             }
                         }.start();
                     }
@@ -111,11 +108,15 @@ public class TimerStartActivity extends AppCompatActivity {
                     countDownTimer.cancel();
                 }
                 countDownTimer = null;
-                totalMin = totalmilis;
+                totalMin = totalMilli;
                 remaining = 0;
                 showTimerText.setText("" + String.format(FORMAT, hour, min, sec));
                 pauseId.setText("Start");
                 isPaused = true;
+                progress = 0;
+                timerProgressBar.setProgress(progress);
+                pauseId.setEnabled(true);
+                pauseId.setTextColor(Color.parseColor("#e12525"));
             }
         });
 
@@ -125,5 +126,25 @@ public class TimerStartActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void init(){
+        showTimerText = findViewById(R.id.showTimerText);
+        pauseId = findViewById(R.id.pauseId);
+        resetId = findViewById(R.id.resetId);
+        backButtonId = findViewById(R.id.backButtonId);
+        timerProgressBar = findViewById(R.id.timerProgressBar);
+
+        hour = getIntent().getIntExtra(TImerUtil.HOUR, 0);
+        min = getIntent().getIntExtra(TImerUtil.MINUTE, 0);
+        sec = getIntent().getIntExtra(TImerUtil.SECOND, 0);
+
+        finalHour = hour * 3600000;
+        finalMin = min * 60000;
+        finalSec = sec * 1000;
+        totalMin = finalHour + finalMin + finalSec;
+        totalMilli = totalMin;
+
+        timerProgressBar.setMax(totalMilli);
     }
 }

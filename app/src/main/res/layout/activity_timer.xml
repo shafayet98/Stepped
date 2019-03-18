@@ -87,6 +87,7 @@
                 android:textStyle="bold"
                 android:textSize="40dp"
                 android:inputType="number"
+                android:maxLength="2"
                 android:textColor="#000"
                 android:layout_weight="1"/>
 
@@ -96,6 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="00"
+                android:maxLength="2"
                 android:textStyle="bold"
                 android:textSize="40dp"
                 android:inputType="number"
@@ -109,6 +111,7 @@
                 android:layout_height="wrap_content"
                 android:hint="00"
                 android:textStyle="bold"
+                android:maxLength="2"
                 android:textSize="40dp"
                 android:inputType="number"
                 android:textColor="#000"

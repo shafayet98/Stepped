@@ -15,6 +15,7 @@
         android:layout_height="200dp">
 
         <ProgressBar
+            android:id="@+id/timerProgressBar"
             style="?android:progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
