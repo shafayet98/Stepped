@@ -14,6 +14,7 @@ public class TimerActivity extends AppCompatActivity {
 
     private Button timerStartId;
     private EditText hourId, minId, secId;
+    private Button clearTimerId;
 
 
     @Override
@@ -36,6 +37,15 @@ public class TimerActivity extends AppCompatActivity {
                 }
             }
         });
+
+        clearTimerId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                hourId.setText("");
+                minId.setText("");
+                secId.setText("");
+            }
+        });
     }
 
     public void init(){
@@ -43,13 +53,12 @@ public class TimerActivity extends AppCompatActivity {
         hourId = findViewById(R.id.hourId);
         minId = findViewById(R.id.minId);
         secId = findViewById(R.id.secId);
+        clearTimerId = findViewById(R.id.clearTimerId);
     }
 
     private boolean validation(){
         if(!hourId.getText().toString().equals("") && !minId.getText().toString().equals("") && !secId.getText().toString().equals("")){
-            if(hourId.getText().toString() != null && minId.getText().toString() != null && secId.getText().toString() != null){
                 return true;
-            }
         }
         return false;
     }
