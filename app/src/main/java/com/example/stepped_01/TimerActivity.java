@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.stepped_01.Util.TImerUtil;
 
 public class TimerActivity extends AppCompatActivity {
 
@@ -22,11 +25,15 @@ public class TimerActivity extends AppCompatActivity {
         timerStartId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TimerActivity.this, TimerStartActivity.class);
-                intent.putExtra("hour", Integer.parseInt(hourId.getText().toString()));
-                intent.putExtra("min", Integer.parseInt(minId.getText().toString()));
-                intent.putExtra("sec", Integer.parseInt(secId.getText().toString()));
-                startActivity(intent);
+                if(validation()){
+                    Intent intent = new Intent(TimerActivity.this, TimerStartActivity.class);
+                    intent.putExtra(TImerUtil.HOUR, Integer.parseInt(hourId.getText().toString()));
+                    intent.putExtra(TImerUtil.MINUTE, Integer.parseInt(minId.getText().toString()));
+                    intent.putExtra(TImerUtil.SECOND, Integer.parseInt(secId.getText().toString()));
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(TimerActivity.this, "Invalid Input", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -38,7 +45,12 @@ public class TimerActivity extends AppCompatActivity {
         secId = findViewById(R.id.secId);
     }
 
-    private void validation(){
-
+    private boolean validation(){
+        if(!hourId.getText().toString().equals("") && !minId.getText().toString().equals("") && !secId.getText().toString().equals("")){
+            if(hourId.getText().toString() != null && minId.getText().toString() != null && secId.getText().toString() != null){
+                return true;
+            }
+        }
+        return false;
     }
 }
