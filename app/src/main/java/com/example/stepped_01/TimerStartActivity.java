@@ -22,6 +22,9 @@ public class TimerStartActivity extends AppCompatActivity {
     private boolean isPaused = false;
     private int remaining = 0;
     private int totalMin = 0;
+    private long resetHour, resetMin, resetSec;
+
+
 
     private TextView showTimerText;
     private CountDownTimer countDownTimer;
@@ -110,7 +113,7 @@ public class TimerStartActivity extends AppCompatActivity {
                 countDownTimer = null;
                 totalMin = totalMilli;
                 remaining = 0;
-                showTimerText.setText("" + String.format(FORMAT, hour, min, sec));
+                showTimerText.setText("" + String.format(FORMAT, resetHour, resetMin, resetSec));
                 pauseId.setText("Start");
                 isPaused = true;
                 progress = 0;
@@ -144,6 +147,12 @@ public class TimerStartActivity extends AppCompatActivity {
         finalSec = sec * 1000;
         totalMin = finalHour + finalMin + finalSec;
         totalMilli = totalMin;
+
+        resetHour = TimeUnit.MILLISECONDS.toHours(totalMilli);
+        resetMin = TimeUnit.MILLISECONDS.toMinutes(totalMilli) - TimeUnit.HOURS.toMinutes(
+                TimeUnit.MILLISECONDS.toHours(totalMilli));
+        resetSec = TimeUnit.MILLISECONDS.toSeconds(totalMilli) - TimeUnit.MINUTES.toSeconds(
+                TimeUnit.MILLISECONDS.toMinutes(totalMilli));
 
         timerProgressBar.setMax(totalMilli);
     }
