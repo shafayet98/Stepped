@@ -8,11 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.stepped_01.Util.TImerUtil;
+import com.example.stepped_01.Util.TimerUtil;
 
-import java.text.Format;
 import java.util.concurrent.TimeUnit;
 
 public class TimerStartActivity extends AppCompatActivity {
@@ -138,9 +136,9 @@ public class TimerStartActivity extends AppCompatActivity {
         backButtonId = findViewById(R.id.backButtonId);
         timerProgressBar = findViewById(R.id.timerProgressBar);
 
-        hour = getIntent().getIntExtra(TImerUtil.HOUR, 0);
-        min = getIntent().getIntExtra(TImerUtil.MINUTE, 0);
-        sec = getIntent().getIntExtra(TImerUtil.SECOND, 0);
+        hour = getIntent().getIntExtra(TimerUtil.HOUR, 0);
+        min = getIntent().getIntExtra(TimerUtil.MINUTE, 0);
+        sec = getIntent().getIntExtra(TimerUtil.SECOND, 0);
 
         finalHour = hour * 3600000;
         finalMin = min * 60000;

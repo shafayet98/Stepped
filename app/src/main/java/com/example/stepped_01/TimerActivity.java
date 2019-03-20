@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.stepped_01.Util.TImerUtil;
+import com.example.stepped_01.Util.TimerUtil;
 
 public class TimerActivity extends AppCompatActivity {
 
@@ -28,9 +28,9 @@ public class TimerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(validation()){
                     Intent intent = new Intent(TimerActivity.this, TimerStartActivity.class);
-                    intent.putExtra(TImerUtil.HOUR, Integer.parseInt(hourId.getText().toString()));
-                    intent.putExtra(TImerUtil.MINUTE, Integer.parseInt(minId.getText().toString()));
-                    intent.putExtra(TImerUtil.SECOND, Integer.parseInt(secId.getText().toString()));
+                    intent.putExtra(TimerUtil.HOUR, Integer.parseInt(hourId.getText().toString()));
+                    intent.putExtra(TimerUtil.MINUTE, Integer.parseInt(minId.getText().toString()));
+                    intent.putExtra(TimerUtil.SECOND, Integer.parseInt(secId.getText().toString()));
                     startActivity(intent);
                 }else{
                     Toast.makeText(TimerActivity.this, "Invalid Input", Toast.LENGTH_SHORT).show();
