@@ -20,7 +20,6 @@ import com.example.stepped_01.Util.Notifications;
 import com.example.stepped_01.Util.SharedPrefUtility;
 import com.example.stepped_01.Util.WeeklyStepsCalculator;
 
-import java.lang.ref.WeakReference;
 
 public class PedometerService extends Service implements SensorEventListener {
 
