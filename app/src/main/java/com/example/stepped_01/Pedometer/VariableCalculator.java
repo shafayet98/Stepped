@@ -1,15 +1,20 @@
 package com.example.stepped_01.Pedometer;
 
+import java.util.Locale;
+
 public class VariableCalculator {
 
     public static String getTotalCalories(int steps){
-        return String.valueOf(Math.ceil(steps * 0.05));
+        String str = String.format(Locale.getDefault(),"%.2f", steps * 0.05);
+        return str;
     }
 
     public static String getTotalKilometers(int steps){
-        return String.valueOf(((steps * 75)/ 100) / 1000);
+        String str = String.format(Locale.getDefault(),"%.2f", ((steps * 55)/ 100) / 1000.0);
+        return str;
     }
     public static String getTotalMinutes(int steps){
-        return String.valueOf(steps * 0.0076923);
+        String str = String.format(Locale.getDefault(),"%.2f", steps * 0.0076923);
+        return str;
     }
 }
