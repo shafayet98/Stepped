@@ -3,6 +3,7 @@ package com.example.stepped_01;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -62,6 +63,13 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
         sensorManager.registerListener(this, sensor,
                 SensorManager.SENSOR_DELAY_UI);
         registerSensor();
+
+        weeklyProgressButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PedometerActivity.this, WeeklyStepActivity.class));
+            }
+        });
     }
 
     @Override
