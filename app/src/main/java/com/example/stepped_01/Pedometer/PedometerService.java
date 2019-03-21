@@ -93,11 +93,11 @@ public class PedometerService extends Service implements SensorEventListener {
         notificationManagerCompat.notify(1, notification.build());
         pedometer.setCalorie(VariableCalculator.getTotalCalories(pedometer.getSteps()));
         pedometer.setKilometers(VariableCalculator.getTotalKilometers(pedometer.getSteps()));
-        pedometer.setMinutes(VariableCalculator.getTotalMinutes(pedometer.getSteps()));
+//        pedometer.setMinutes(VariableCalculator.getTotalMinutes(pedometer.getSteps()));
         saveSteps();
         saveCalories();
         saveKilometers();
-        saveMinutes();
+//        saveMinutes();
     }
 
     @Override
@@ -160,14 +160,14 @@ public class PedometerService extends Service implements SensorEventListener {
         editor.commit();
     }
 
-    private void saveMinutes(){
-        SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
-        SharedPreferences.Editor editor= sharedPreferences.edit();
-
-        editor.putString(SharedPrefUtility.MINUTES, VariableCalculator.getTotalMinutes(pedometer.getSteps()));
-        editor.apply();
-        editor.commit();
-    }
+//    private void saveMinutes(){
+//        SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
+//        SharedPreferences.Editor editor= sharedPreferences.edit();
+//
+//        editor.putString(SharedPrefUtility.MINUTES, VariableCalculator.getTotalMinutes(pedometer.getSteps()));
+//        editor.apply();
+//        editor.commit();
+//    }
 
 //    public static class SensorEventLoggerTask extends
 //            AsyncTask<SensorEvent, Void, Void> {

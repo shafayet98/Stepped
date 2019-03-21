@@ -13,8 +13,8 @@ public class VariableCalculator {
         String str = String.format(Locale.getDefault(),"%.2f", ((steps * 55)/ 100) / 1000.0);
         return str;
     }
-    public static String getTotalMinutes(int steps){
-        String str = String.format(Locale.getDefault(),"%.2f", steps * 0.0076923);
-        return str;
-    }
+//    public static String getTotalMinutes(int steps){
+//        String str = String.format(Locale.getDefault(),"%.2f", steps * 0.0076923);
+//        return str;
+//    }
 }

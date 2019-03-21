@@ -32,7 +32,7 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
     public ProgressBar pedometerProgressBar;
     public TextView stepsTextView;
     private TextView kilometerTextView;
-    private TextView minutesTextView;
+//    private TextView minutesTextView;
     private TextView totalCalorieTextView;
     private Button setGoalsButton;
     private TextView goalsTextView;
@@ -109,7 +109,7 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
         pedometerProgressBar = findViewById(R.id.pedometerProgressBar);
         stepsTextView = findViewById(R.id.stepsTextView);
         kilometerTextView = findViewById(R.id.kilometerTextView);
-        minutesTextView = findViewById(R.id.kilometerTextView);
+//        minutesTextView = findViewById(R.id.kilometerTextView);
         totalCalorieTextView = findViewById(R.id.totalCalorieTextView);
         setGoalsButton = findViewById(R.id.setGoalsButton);
         goalsTextView = findViewById(R.id.goalsTextView);
@@ -141,15 +141,15 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
         int steps = sharedPreferences.getInt(WeeklyStepsCalculator.getToday(), 0);
         String calories = sharedPreferences.getString(SharedPrefUtility.CALORIES, "");
         String kilometers = sharedPreferences.getString(SharedPrefUtility.KILOMETERS, "");
-        String minutes = sharedPreferences.getString(SharedPrefUtility.MINUTES, "");
+        //String minutes = sharedPreferences.getString(SharedPrefUtility.MINUTES, "");
         pedometer.setSteps(steps);
         pedometerProgressBar.setProgress(steps);
         stepsTextView.setText(String.valueOf(steps));
         kilometerTextView.setText(kilometers);
         totalCalorieTextView.setText(calories);
-        minutesTextView.setText(minutes);
+//        minutesTextView.setText(minutes);
         pedometer.setKilometers(kilometers);
-        pedometer.setMinutes(minutes);
+        //pedometer.setMinutes(minutes);
         pedometer.setCalorie(calories);
 
     }
