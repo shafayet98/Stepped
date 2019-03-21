@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.example.stepped_01.Pedometer.Pedometer;
 import com.example.stepped_01.Pedometer.PedometerService;
 import com.example.stepped_01.Util.SharedPrefUtility;
+import com.example.stepped_01.Util.WeeklyStepsCalculator;
 
 import java.lang.ref.WeakReference;
 
@@ -137,7 +138,7 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
 
     private void loadSteps(){
         SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
-        int steps = sharedPreferences.getInt(SharedPrefUtility.STEPS, 0);
+        int steps = sharedPreferences.getInt(WeeklyStepsCalculator.getToday(), 0);
         pedometer.setSteps(steps);
         pedometerProgressBar.setProgress(steps);
         stepsTextView.setText(String.valueOf(steps));
@@ -161,7 +162,7 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
         SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
         SharedPreferences.Editor editor= sharedPreferences.edit();
 
-        editor.putInt(SharedPrefUtility.STEPS, pedometer.getSteps());
+        editor.putInt(WeeklyStepsCalculator.getToday(), pedometer.getSteps());
         editor.apply();
         editor.commit();
     }

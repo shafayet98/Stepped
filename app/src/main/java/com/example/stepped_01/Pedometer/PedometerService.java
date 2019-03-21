@@ -1,6 +1,6 @@
 package com.example.stepped_01.Pedometer;
 
-import android.app.Notification;
+
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
@@ -9,17 +9,16 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
-import com.example.stepped_01.PedometerActivity;
 import com.example.stepped_01.R;
 import com.example.stepped_01.ServicesActivity;
 import com.example.stepped_01.Util.Notifications;
 import com.example.stepped_01.Util.SharedPrefUtility;
+import com.example.stepped_01.Util.WeeklyStepsCalculator;
 
 import java.lang.ref.WeakReference;
 
@@ -93,6 +92,8 @@ public class PedometerService extends Service implements SensorEventListener {
         notification.setContentText("Steps: " + pedometer.getSteps());
         notificationManagerCompat.notify(1, notification.build());
         saveSteps();
+        saveCalories();
+        saveKilometers();
     }
 
     @Override
@@ -119,7 +120,7 @@ public class PedometerService extends Service implements SensorEventListener {
         SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
         SharedPreferences.Editor editor= sharedPreferences.edit();
 
-        editor.putInt(SharedPrefUtility.STEPS, pedometer.getSteps());
+        editor.putInt(WeeklyStepsCalculator.getToday(), pedometer.getSteps());
         editor.apply();
         editor.commit();
     }
@@ -133,8 +134,26 @@ public class PedometerService extends Service implements SensorEventListener {
 
     private int loadSteps(){
         SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
-        int steps = sharedPreferences.getInt(SharedPrefUtility.STEPS, 0);
+        int steps = sharedPreferences.getInt(WeeklyStepsCalculator.getToday(), 0);
         return steps;
+    }
+
+    private void saveCalories(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+
+        editor.putString(SharedPrefUtility.CALORIES, VariableCalculator.getTotalCalories(pedometer.getSteps()));
+        editor.apply();
+        editor.commit();
+    }
+
+    private void saveKilometers(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+
+        editor.putString(SharedPrefUtility.KILOMETERS, VariableCalculator.getTotalKilometers(pedometer.getSteps()));
+        editor.apply();
+        editor.commit();
     }
 
 //    public static class SensorEventLoggerTask extends
