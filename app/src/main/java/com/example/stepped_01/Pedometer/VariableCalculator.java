@@ -9,4 +9,7 @@ public class VariableCalculator {
     public static String getTotalKilometers(int steps){
         return String.valueOf(((steps * 75)/ 100) / 1000);
     }
+    public static String getTotalMinutes(int steps){
+        return String.valueOf(steps * 0.0076923);
+    }
 }

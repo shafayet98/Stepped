@@ -91,9 +91,13 @@ public class PedometerService extends Service implements SensorEventListener {
         notification.setProgress(readInitialGoals(), pedometer.getSteps(), false);
         notification.setContentText("Steps: " + pedometer.getSteps());
         notificationManagerCompat.notify(1, notification.build());
+        pedometer.setCalorie(VariableCalculator.getTotalCalories(pedometer.getSteps()));
+        pedometer.setKilometers(VariableCalculator.getTotalKilometers(pedometer.getSteps()));
+        pedometer.setMinutes(VariableCalculator.getTotalMinutes(pedometer.getSteps()));
         saveSteps();
         saveCalories();
         saveKilometers();
+        saveMinutes();
     }
 
     @Override
@@ -152,6 +156,15 @@ public class PedometerService extends Service implements SensorEventListener {
         SharedPreferences.Editor editor= sharedPreferences.edit();
 
         editor.putString(SharedPrefUtility.KILOMETERS, VariableCalculator.getTotalKilometers(pedometer.getSteps()));
+        editor.apply();
+        editor.commit();
+    }
+
+    private void saveMinutes(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+
+        editor.putString(SharedPrefUtility.MINUTES, VariableCalculator.getTotalMinutes(pedometer.getSteps()));
         editor.apply();
         editor.commit();
     }

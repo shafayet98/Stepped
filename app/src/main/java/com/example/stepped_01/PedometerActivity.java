@@ -139,18 +139,28 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
     private void loadSteps(){
         SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);
         int steps = sharedPreferences.getInt(WeeklyStepsCalculator.getToday(), 0);
+        String calories = sharedPreferences.getString(SharedPrefUtility.CALORIES, "");
+        String kilometers = sharedPreferences.getString(SharedPrefUtility.KILOMETERS, "");
+        String minutes = sharedPreferences.getString(SharedPrefUtility.MINUTES, "");
         pedometer.setSteps(steps);
         pedometerProgressBar.setProgress(steps);
         stepsTextView.setText(String.valueOf(steps));
+        kilometerTextView.setText(kilometers);
+        totalCalorieTextView.setText(calories);
+        minutesTextView.setText(minutes);
+        pedometer.setKilometers(kilometers);
+        pedometer.setMinutes(minutes);
+        pedometer.setCalorie(calories);
+
     }
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         pedometer.increaseSteps();
         saveSteps();
-        pedometerProgressBar.setProgress(pedometer.getSteps());
-        stepsTextView.setText(String.valueOf(pedometer.getSteps()));
-
+//        pedometerProgressBar.setProgress(pedometer.getSteps());
+//        stepsTextView.setText(String.valueOf(pedometer.getSteps()));
+        loadSteps();
     }
 
     @Override

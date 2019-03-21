@@ -22,7 +22,6 @@ public class SharedPrefUtility {
     public static final String SATURDAY = "SATURDAY";
     public static final String CALORIES = "CALORIES";
     public static final String KILOMETERS = "KILOMETERS";
-
-
+    public static final String MINUTES = "MINUTES";
 
 }
