@@ -29,6 +29,18 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".Alarm.ui.AlarmActivity"/>
+        <activity android:name=".Alarm.ui.AddEditAlarmActivity" />
+
+        <activity
+            android:name=".Alarm.ui.AlarmLandingPageActivity"
+            android:theme="@style/AlertLandingPageTheme" />
+
+        <service android:name=".Alarm.service.LoadAlarmsService" />
+
+        <receiver android:name=".Alarm.service.LoadAlarmsReceiver" />
+
+        <receiver android:name=".Alarm.service.AlarmReceiver" />
         <service
             android:name=".Pedometer.PedometerService"
             android:enabled="true" />

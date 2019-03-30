@@ -13,8 +13,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.stepped_01.Alarm.ui.AlarmActivity;
 import com.example.stepped_01.Pedometer.PedometerService;
 import com.example.stepped_01.Util.SharedPrefUtility;
 
@@ -24,7 +26,8 @@ public class ServicesActivity extends AppCompatActivity {
     private CardView bmiId;
     private CardView timerId;
     private CardView alarmId;
-    private Toolbar toolbarId;
+    //private Toolbar toolbarId;
+    private Button logoutButtonId;
 
     private String bmi, result;
 
@@ -60,6 +63,20 @@ public class ServicesActivity extends AppCompatActivity {
                 }
             }
         });
+
+        alarmId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ServicesActivity.this, AlarmActivity.class));
+            }
+        });
+
+        logoutButtonId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertLogout();
+            }
+        });
     }
 
 
@@ -73,9 +90,10 @@ public class ServicesActivity extends AppCompatActivity {
         bmiId = findViewById(R.id.bmiId);
         timerId = findViewById(R.id.timerId);
         alarmId =findViewById(R.id.alarmId);
-        toolbarId = findViewById(R.id.toolbarId);
+        logoutButtonId = findViewById(R.id.logoutButtonId);
+        //toolbarId = findViewById(R.id.toolbarId);
 
-        setSupportActionBar(toolbarId);
+        //setSupportActionBar(toolbarId);
     }
 
     private void getBmi(){
@@ -114,22 +132,22 @@ public class ServicesActivity extends AppCompatActivity {
         startActivity(new Intent(ServicesActivity.this, BmiCalculatorActivity.class));
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.logout:
-                alertLogout();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu){
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.main_menu,menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch(item.getItemId()){
+//            case R.id.logout:
+//                alertLogout();
+//                break;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
     private void alertLogout(){
         AlertDialog.Builder builder1 = new AlertDialog.Builder(ServicesActivity.this);
