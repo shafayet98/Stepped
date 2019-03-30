@@ -206,5 +206,4 @@ public final class AlarmReceiver extends BroadcastReceiver {
             mgr.createNotificationChannel(channel);
         }
     }
-
 }
