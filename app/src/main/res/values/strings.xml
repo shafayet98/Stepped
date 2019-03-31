@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Stepped_01</string>
+    <string name="app_name">Stepped</string>
 
     <!-- Main Activity/Fragment -->
     <string name="empty_view_text">Press the Floating Action Button to add an alarm!</string>

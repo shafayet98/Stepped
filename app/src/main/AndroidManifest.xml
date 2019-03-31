@@ -12,16 +12,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WeeklyStepActivity"></activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".TimerStartActivity" />
-        <activity android:name=".TimerActivity" />
-        <activity android:name=".PedometerActivity" />
-        <activity android:name=".ServicesActivity" />
-        <activity android:name=".ResultBmiActivity" />
-        <activity android:name=".BmiCalculatorActivity" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".WeeklyStepActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".TimerStartActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".TimerActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PedometerActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ServicesActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ResultBmiActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".BmiCalculatorActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SignUpActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SplashScreenActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,12 +39,15 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Alarm.ui.AlarmActivity"/>
-        <activity android:name=".Alarm.ui.AddEditAlarmActivity" />
+        <activity android:name=".Alarm.ui.AlarmActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Alarm.ui.AddEditAlarmActivity"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".Alarm.ui.AlarmLandingPageActivity"
-            android:theme="@style/AlertLandingPageTheme" />
+            android:theme="@style/AlertLandingPageTheme"
+            android:screenOrientation="portrait"/>
 
         <service android:name=".Alarm.service.LoadAlarmsService" />
 
