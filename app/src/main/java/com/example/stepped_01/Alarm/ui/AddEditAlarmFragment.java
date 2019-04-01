@@ -51,19 +51,19 @@ public final class AddEditAlarmFragment extends Fragment {
 
         final Alarm alarm = getAlarm();
 
-        mTimePicker = (TimePicker) v.findViewById(R.id.edit_alarm_time_picker);
+        mTimePicker = v.findViewById(R.id.edit_alarm_time_picker);
         ViewUtils.setTimePickerTime(mTimePicker, alarm.getTime());
 
-        mLabel = (EditText) v.findViewById(R.id.edit_alarm_label);
+        mLabel = v.findViewById(R.id.edit_alarm_label);
         mLabel.setText(alarm.getLabel());
 
-        mMon = (CheckBox) v.findViewById(R.id.edit_alarm_mon);
-        mTues = (CheckBox) v.findViewById(R.id.edit_alarm_tues);
-        mWed = (CheckBox) v.findViewById(R.id.edit_alarm_wed);
-        mThurs = (CheckBox) v.findViewById(R.id.edit_alarm_thurs);
-        mFri = (CheckBox) v.findViewById(R.id.edit_alarm_fri);
-        mSat = (CheckBox) v.findViewById(R.id.edit_alarm_sat);
-        mSun = (CheckBox) v.findViewById(R.id.edit_alarm_sun);
+        mMon = v.findViewById(R.id.edit_alarm_mon);
+        mTues = v.findViewById(R.id.edit_alarm_tues);
+        mWed = v.findViewById(R.id.edit_alarm_wed);
+        mThurs = v.findViewById(R.id.edit_alarm_thurs);
+        mFri = v.findViewById(R.id.edit_alarm_fri);
+        mSat = v.findViewById(R.id.edit_alarm_sat);
+        mSun = v.findViewById(R.id.edit_alarm_sun);
 
         setDayCheckboxes(alarm);
 
