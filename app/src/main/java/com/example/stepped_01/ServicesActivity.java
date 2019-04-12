@@ -83,6 +83,7 @@ public class ServicesActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         this.moveTaskToBack(true);
+
     }
 
     private void init(){
@@ -95,6 +96,7 @@ public class ServicesActivity extends AppCompatActivity {
 
         //setSupportActionBar(toolbarId);
     }
+
 
     private void getBmi(){
         SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefUtility.SHARED_PREF, MODE_PRIVATE);

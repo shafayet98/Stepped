@@ -15,6 +15,7 @@
         <activity android:name=".WeeklyStepActivity"
             android:screenOrientation="portrait"></activity>
         <activity android:name=".MainActivity"
+            android:noHistory="true"
             android:screenOrientation="portrait"/>
         <activity android:name=".TimerStartActivity"
             android:screenOrientation="portrait"/>
@@ -29,8 +30,10 @@
         <activity android:name=".BmiCalculatorActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".SignUpActivity"
+            android:noHistory="true"
             android:screenOrientation="portrait"/>
         <activity android:name=".SplashScreenActivity"
+            android:noHistory="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
