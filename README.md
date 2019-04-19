@@ -18,6 +18,6 @@ Stepped is an android application which provides fitness solution. It includes c
 Contributors: 
 ============
 
-Rishadul Islam khan [rishad1234] (<https://www.github.com/rishad1234>)
+Rishadul Islam khan [rishad1234](<https://www.github.com/rishad1234>)
 
-Shafayet-ul Islam [shafayet98] (<https://github.com/shafayet98>)
+Shafayet-ul Islam [shafayet98](<https://github.com/shafayet98>)
