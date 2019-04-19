@@ -11,5 +11,3 @@ Contributing
 We welcome contributions and are always looking for new ideas, input, and
 suggestions. Feel free to file issues on the repo and we'll address them as we can. You can also learn more about how you can help on the [Contribution
 Rules & Guidelines](</CONTRIBUTING.md>).
-
-
