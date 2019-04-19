@@ -4,8 +4,14 @@ Stepped is an android application which provides fitness solution. It includes c
 
 
 ![Manage all the features](/screenshots/services_page.png) | 
-![Pedometer](/screenshots/pedometer_page.png) | 
+
+
+![Pedometer](/screenshots/pedometer_page.png) |
+
+
 ![Timer](/screenshots/timer_start_page.png) | 
+
+
 ![Timer start](/screenshots/timer_page.png)
 
 
