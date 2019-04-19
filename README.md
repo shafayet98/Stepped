@@ -1,4 +1,4 @@
-Mimicker Alarm, a Microsoft Garage Project
+Stepped, a fitness tracker app for android
 ====================================
 Stepped is an android application which provides fitness solution. It includes calculating how  much  step  user  is  taking,  how  much  calories  are  burning  in  each  step,  what  is  the  BMI  of the user and on top of everything a weekly graphical representation of progress. For  staying  more  focused  in  everyday  activity  stepped  also  provides  count-down  timer  and  a special alarm system. 
 
@@ -15,8 +15,7 @@ Stepped is an android application which provides fitness solution. It includes c
 ![Timer start](/screenshots/timer_page.png)
 
 
-Contributing
+Contributors: 
 ============
-We welcome contributions and are always looking for new ideas, input, and
-suggestions. Feel free to file issues on the repo and we'll address them as we can. You can also learn more about how you can help on the [Contribution
-Rules & Guidelines](</CONTRIBUTING.md>).
+    1. Rishadul Islam khan [rishad1234](<https://www.github.com/rishad1234>)
+    2. Shafayet-ul Islam [shafayet98](<https://github.com/shafayet98>)
